@@ -1,0 +1,61 @@
+<div class="container">
+  <!-- No data message -->
+  <p *ngIf="Employee.length <= 0 && isLogin" class="no-data text-center" style="color: white; font-size: larger;"> No one registed yet!!! 😕</p>
+
+  <!-- Sign Up Form -->
+  <div *ngIf=!isLogin>
+    <form class="txt-label" [formGroup]="employeeLogin" (ngSubmit)="onSubmit()" *ngIf=employeeLogin >
+      <div class="form-group">
+        <label for="inputName">Username</label>
+        <input class="form-control" type="text" formControlName="username">
+        <!-- error -->
+        <div class="invalid-feedback" *ngIf="submitted && myForm.username.errors?.required">
+          Username cannot be empty.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputPassword ">Password</label>
+        <input class="form-control" type="password" formControlName="password">
+        <!-- error -->
+        <div class="invalid-feedback" *ngIf="submitted && myForm.password.errors?.required">
+          Password cannot be empty.
+        </div>
+      </div>
+      <div class="form-group">
+        <button class="btn btn-success btn-lg btn-block" type="submit">Sign Up</button>
+      </div>
+
+      </form>
+  </div>
+
+  <!-- Employee list -->
+  <table class="table table-bordered" *ngIf="Employee.length > 0 && isLogin">
+    <thead class="table-success">
+      <tr>
+        <th scope="col">Volunteer Application Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Designation</th>
+        <th scope="col">Phone No</th>
+        <th scope="col center">Update</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let employee of Employee; let i = index" class="data-show">
+        <th scope="row">{{employee._id}}</th>
+        <td>{{employee.name}}</td>
+        <td>{{employee.email}}</td>
+        <td>{{employee.designation}}</td>
+        <td>{{employee.phoneNumber}}</td>
+        <td class="text-center edit-block">
+          <span class="edit" [routerLink]="['/edit-employee/', employee._id]">
+            <button type="button" class="btn btn-success btn-sm">Edit</button>
+          </span>
+          <span class="delete" (click)="removeEmployee(employee, i)">
+            <button type="button" class="btn btn-danger btn-sm">Delete</button>
+          </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

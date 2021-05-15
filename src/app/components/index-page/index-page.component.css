@@ -1,0 +1,82 @@
+ .set-div-main-container{
+    color: white;
+}
+.wrapper {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .typing-demo {
+    width: 40ch;
+    animation: typing 2s steps(25), blink .5s step-end infinite alternate;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid;
+    font-family: monospace;
+    font-size: 2em;
+  }
+  a,a:hover{
+    color: white;
+    text-decoration: none;
+  }
+  
+  @keyframes typing {
+    from {
+      width: 0
+    }
+  }
+      
+  @keyframes blink {
+    50% {
+      border-color: transparent
+    }
+  }
+/*.main-head{
+    text-align: center;
+    margin-top: 40px;
+    text-shadow: 2px 2px white;
+    font-size: 4rem;
+} */
+.sub-head-wrapper{
+    position: absolute;
+    background-color: white;
+    color: black;
+    z-index: 2;
+
+}
+.sub-head{
+    position: relative;
+    width: 745px;
+    padding: 47px;
+    font-size: 30px;
+    text-align: justify;
+    margin-left: 100px;
+    float: left;
+}
+
+.sub-head-image{
+    position: relative;
+    float: right;
+    width: 350px;
+    height: 462px;
+}
+
+.btn-head{
+  float: right;
+  margin-right: 200px;
+  margin-top: 220px;
+  font-size: larger;
+  width: 200px;
+  padding: 20px;
+  border: 3px solid #5fff83;
+  text-align: center;
+  border-radius: 25px;
+  z-index: -1;
+}
+.btn-head:hover{
+  background-color: #5fff83;
+  cursor: pointer;
+  color: black;
+}

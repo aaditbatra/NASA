@@ -1,0 +1,15 @@
+.menu-spacer {
+  flex: 1 1 auto;
+}
+.click-pointer{
+  cursor: pointer;
+  margin:auto;
+}
+.set-body{
+  background-color: black !important;
+  color: white;
+}
+.border-setup{
+  color: white;
+  border-color: white;
+}
